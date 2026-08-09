@@ -6,28 +6,28 @@ computer_wins = 0
 
 options = ['سنگ','کاغذ','قیچی']
 while True:
-    user_input = input(" انتخاب کنید : سنگ و کاغذ و قیچی یا خروج  : ")
+    user_input = input (" انتخاب کنید : سنگ و کاغذ و قیچی یا خروج  : ")
     if user_input == 'خروج':
         break
     
     if user_input not in options :
-        print('گزینه ی صحیح را انتحاب کنید')
+        print ('گزینه ی صحیح را انتحاب کنید')
         continue
     #اگر ورودی کاربر غیر از این ها بود دوباره میپرسیم با continue
 
     random_number = random.randint(0,2)
                     #سنگ 1و کاغذ 1و قیچی2
     computer_pick = options[random_number]
-    print("انتخاب کامپیوتر : ", computer_pick, ' است')
+    print ("انتخاب کامپیوتر : ", computer_pick, ' است')
     
     if user_input == 'سنگ' and computer_pick == 'قیچی' :
-        print('**شما برنده شدید **')
+        print ('**شما برنده شدید **')
         user_wins +=1
         continue
     
   
     elif user_input == 'کاغذ' and computer_pick == 'سنگ' :
-        print('**شما برنده شدید **')
+        print ('**شما برنده شدید **')
         user_wins +=1
         
 
@@ -37,17 +37,17 @@ while True:
         print ('** شما برنده شدید **')
         
     elif user_input == computer_pick :
-        print('برابر شدید :(')
+        print ('برابر شدید :((')
         continue 
         
         
     else:
-        print('شما باختید :(')
+        print ('شما باختید :((')
         computer_wins +=1
         
 #نتیچه نهایی قبل خروج
 
-print('شما ',user_wins,' بار برنده شدید')
-print('کامپیوتر ',computer_wins ,' بار بنده شد ')
+print ('شما ',user_wins,' بار برنده شدید')
+print ('کامپیوتر ',computer_wins ,' بار بنده شد ')
         
-print('خدا نگهدار')
+print ('خدا نگهدار')
