@@ -1,53 +1,41 @@
 import random
 
-#مقدار دهی اولیه امتیاز ها 
-user_wins = 0 
+OPTIONS = ["سنگ", "کاغذ", "قیچی"]
+
+user_wins = 0
 computer_wins = 0
 
-options = ['سنگ','کاغذ','قیچی']
 while True:
-    user_input = input (" انتخاب کنید : سنگ و کاغذ و قیچی یا خروج  : ")
-    if user_input == 'خروج':
+    user_choice = input(
+        "\nانتخاب کنید (سنگ، کاغذ، قیچی یا خروج): "
+    ).strip()
+
+    if user_choice == "خروج":
         break
-    
-    if user_input not in options :
-        print ('گزینه ی صحیح را انتحاب کنید')
+
+    if user_choice not in OPTIONS:
+        print("لطفاً یکی از گزینه‌های صحیح را انتخاب کنید.")
         continue
-    #اگر ورودی کاربر غیر از این ها بود دوباره میپرسیم با continue
 
-    random_number = random.randint(0,2)
-                    #سنگ 1و کاغذ 1و قیچی2
-    computer_pick = options[random_number]
-    print ("انتخاب کامپیوتر : ", computer_pick, ' است')
-    
-    if user_input == 'سنگ' and computer_pick == 'قیچی' :
-        print ('**شما برنده شدید **')
-        user_wins +=1
-        continue
-    
-  
-    elif user_input == 'کاغذ' and computer_pick == 'سنگ' :
-        print ('**شما برنده شدید **')
-        user_wins +=1
-        
+    computer_choice = random.choice(OPTIONS)
+    print(f"انتخاب کامپیوتر: {computer_choice}")
 
+    if user_choice == computer_choice:
+        print("مساوی شدید! 😐")
 
-    elif user_input == 'قیچی' and computer_pick == 'کاغذ' :
-        user_wins +=1
-        print ('** شما برنده شدید **')
-        
-    elif user_input == computer_pick :
-        print ('برابر شدید :((')
-        continue 
-        
-        
+    elif (
+        (user_choice == "سنگ" and computer_choice == "قیچی")
+        or (user_choice == "کاغذ" and computer_choice == "سنگ")
+        or (user_choice == "قیچی" and computer_choice == "کاغذ")
+    ):
+        print("شما برنده شدید! 🎉")
+        user_wins += 1
+
     else:
-        print ('شما باختید :((')
-        computer_wins +=1
-        
-#نتیچه نهایی قبل خروج
+        print("شما باختید. 😔")
+        computer_wins += 1
 
-print ('شما ',user_wins,' بار برنده شدید')
-print ('کامپیوتر ',computer_wins ,' بار بنده شد ')
-        
-print ('خدا نگهدار')
+print("\n--- نتیجه نهایی ---")
+print(f"شما {user_wins} بار برنده شدید.")
+print(f"کامپیوتر {computer_wins} بار برنده شد.")
+print("خدا نگهدار 👋")
